@@ -5,4 +5,6 @@ class Category < ActiveRecord::Base
   
   attr_accessible :name, :slug
   has_and_belongs_to_many :articles
+
+  validates :name, :slug, :presence => true
 end
