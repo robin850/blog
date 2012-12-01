@@ -1,7 +1,11 @@
 <% title "Blog" %>
 
-<% for article in @articles %>
-	<%= article.display %>
-<% end %>
+<% if !@articles.blank? %>
+  <% for article in @articles %>
+  	<%= article.display %>
+  <% end %>
 
-<%= will_paginate @articles %>
+  <%= will_paginate @articles %>
+<% else %>
+  Aucun article trouvé.
+<% end %>

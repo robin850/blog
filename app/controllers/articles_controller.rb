@@ -5,10 +5,6 @@ class ArticlesController < ApplicationController
   
   def index
     @articles = ArticleDecorator.decorate(Article.search(params))
-
-    if @articles.blank?
-      flash[:alert] = "Aucun article trouvé."
-    end
   end
 
   def show
