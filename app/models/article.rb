@@ -15,7 +15,7 @@ class Article < ActiveRecord::Base
 
   validates :body, :title, :presence => true
 
-  self.per_page = 2
+  self.per_page = 10
 
   def published?
     self.published == "on" ? true : false
