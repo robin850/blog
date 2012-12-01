@@ -1,0 +1,63 @@
+div.highlight *
+  font-family: Consolas, Monaco, "Lucida Console", monospace
+
+div.highlight
+  overflow-x: auto
+  margin-bottom: $fontSize
+
+pre
+  ::-webkit-scrollbar
+    height: 11px
+    background: #3B3B3B
+
+  ::-webkit-scrollbar-thumb
+    background: #7D7D7D
+    border-radius: 5px
+
+.article
+  margin-bottom: $fontSize
+
+.license img
+  display: block
+  float: left
+  margin: 5px 10px 0 0
+
+.more_article
+  float: right
+
+.introduction
+  margin-bottom: $fontSize
+  color: #A2A2A2
+
+.infos
+  margin-bottom: $fontSize
+
+.license
+  padding: $fontSize 0 0 0
+  border-top: 1px solid silver
+  border-bottom: 1px solid silver
+  margin-bottom: $fontSize
+
+.pagination
+  a, em, span
+    display: block
+    float: left
+    margin: 0 10px 0 0
+    padding: 2px
+    text-align: center
+    border: 1px solid #C8C8C8
+    text-decoration: none
+    @include rounded-corner(4px)
+    width: 20px!important
+    height: 20px!important
+    line-height: 1.2em
+    background: #F8F8F8
+  a:hover
+    @include button-gradient
+    color: white
+    border: 1px solid $buttonBorderColor
+  .current
+    @include button-gradient
+    color: white
+    font-style: normal
+    border: 1px solid $buttonBorderColor

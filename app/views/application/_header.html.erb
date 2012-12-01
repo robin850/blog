@@ -1,0 +1,21 @@
+<%= content_tag(:div, :id => :header) do %>
+	<%= content_tag(:div, :class => :container_12) do %>
+
+		<%= content_tag(:div, :class => "grid_2 logo alpha") do %>
+			<%= link_to image_tag("logo.png"), root_path %>
+		<% end %>
+
+		<%= content_tag(:div, "", :class => :grid_7) %>
+
+		<%= content_tag(:div, :class => "grid_3 right_box") do %>
+		
+			<% if user_signed_in? %>
+				<%= render :partial => "userbox" %>
+			<% else %>
+				<%= render :partial => "social" %>
+			<% end %>
+
+		<% end %>
+	
+	<% end %>
+<% end %>

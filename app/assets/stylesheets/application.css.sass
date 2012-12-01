@@ -1,0 +1,37 @@
+//= require_self
+//= require grid
+//= require pygments
+//= require reset
+@import "mixins"
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro|Shanti|Open+Sans")
+
+// Variables
+$backgroundColor: #F5F5F5
+$fontSize: 16px
+$color: #575757
+$buttonBorderColor: #7e3f30 
+$clinkColor: rgb(182,66,46)
+$noticeBackgroundColor: #DFECD6
+$noticeBorderColor: #ADB5A8
+$noticeColor: #619A61
+$alertBackgroundColor: #EACAC9
+$alertBorderColor: #C36361
+$alertColor: #C36361
+$buttonTopColor: #B6422E
+$buttonBottomColor: #863325
+$lightenTopColor: lighten($buttonTopColor, 7%)
+$lightenBottomColor: lighten($buttonBottomColor, 5%)
+$buttonColor: white
+$footerColor: #2E2E2E
+
+body
+  background: $backgroundColor
+  line-height: 1.5em
+  @include font-format
+  color: $color
+  p, h1, h2, h3, h4, h5, h6, ul, blockquote
+    margin-bottom: 1.5em
+
+@import "header"
+@import "container"
+@import "footer"

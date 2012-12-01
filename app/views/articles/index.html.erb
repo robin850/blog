@@ -1,0 +1,7 @@
+<% title "Blog" %>
+
+<% for article in @articles %>
+	<%= article.display %>
+<% end %>
+
+<%= will_paginate @articles %>

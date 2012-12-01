@@ -1,0 +1,12 @@
+<h3>Les commentaires</h3>
+
+<% if !@comments.blank? %>
+
+  <% for comment in @comments %>
+    <%= comment.display %>
+  <% end %>
+
+
+<% else %>
+	<p>Il n'y a pas de commentaires pour le moment.<p>
+<% end %>

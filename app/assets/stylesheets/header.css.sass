@@ -1,0 +1,39 @@
+#header
+  background: url("bg_header.png") repeat-x
+  height: 112px
+  margin-bottom: 30px
+  @include font-format
+
+  .logo
+    margin-top: 12px
+
+  .right_box
+    float: right
+    color: white
+    padding-top: 5px
+ 		
+    a
+      color: white
+      @include no-decoration
+      &:hover
+        @include underlined
+
+    .avatar
+      display: inline-block
+      position: relative
+      float: left
+      margin: 4px 15px 0 0
+
+      .avatar-overlay
+        @include avatar-overlay 
+        top: 0
+        left: 0
+
+    .social_links
+      margin-top: 22px
+      float: right
+      a
+        display: block
+        float: left
+        margin-right: 20px
+        text-decoration: none

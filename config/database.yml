@@ -1,0 +1,29 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: blog_development
+  pool: 5
+  username: robin
+  password: robin
+
+test: &test
+  adapter: postgresql
+  min_messages: WARNING
+  encoding: unicode
+  database: blog_test
+  pool: 5
+  username: robin
+  password: robin
+
+production:
+  adapter:  postgresql
+  encoding: unicode
+  pool: 5
+  database: decspp5f3ibbjt
+  username: ENV["DB_USER"]
+  password: ENV["DB_PASSWORD"]
+  host: ENV["DB_HOST"]
+  port: 5432
+
+cucumber:
+  <<: *test

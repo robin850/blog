@@ -1,0 +1,7 @@
+<div class="avatar">
+  <%= image_tag avatar_url(current_user, 68) %>
+  <span class="avatar-overlay"></span>
+</div>
+
+<%= link_to "Administration" if current_user.admin? %>
+<%= link_to "Deconnexion", destroy_user_session_path %>

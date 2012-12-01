@@ -1,0 +1,30 @@
+.grid_8, .grid_12
+  form
+    label 
+      display: block
+      width: 150px
+      margin: 1px 0 10px 0
+
+    textarea
+      @include field
+      @include rounded-corner(4px)
+      min-height: 200px
+      height: 200px
+      min-width: 500px
+      width: 500px
+      outline: none
+      padding: 10px
+
+    &.admin textarea
+      width: 98%
+
+    input[type="text"], input[type="password"], input[type="email"]
+      height: 25px
+      @include field
+      @include rounded-corner(4px)
+      outline: none
+
+    input[type="submit"]
+      height: 30px
+      @include btn
+      padding-top: 5px

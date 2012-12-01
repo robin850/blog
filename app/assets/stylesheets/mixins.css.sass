@@ -1,0 +1,97 @@
+@mixin field
+  border: 1px solid #CCC
+  font-family: "Source Sans Pro"
+  margin-bottom: 20px
+  padding: 3px 3px 2px 7px
+  font-size: 16px
+  color: rgba(0,0,0,0.75)
+  background: white
+  -moz-box-shadow: inset 3px 3px 6px rgba(0,0,0,0.12)
+  -webkit-box-shadow: inset 3px 3px 6px rgba(0,0,0,0.12)
+  box-shadow: inset 3px 3px 6px rgba(0,0,0,0.12)
+
+@mixin rounded-corner($radius: 2px)
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  -o-border-radius: $radius
+  -khtml-border-radius: $radius
+  border-radius: $radius
+
+@mixin no-decoration
+  text-decoration: none
+
+@mixin underlined
+  text-decoration: underline
+
+@mixin notification
+  @include rounded-corner(3px)
+  border-width: 1px
+  border-style: solid
+  padding: 5px 6px 5px 12px
+  width: 100%
+  margin-bottom: 30px
+
+@mixin avatar-overlay
+  position: absolute
+  background: url(avatar-overlay.png) no-repeat
+  width: 68px
+  height: 68px
+
+@mixin button-gradient 
+  background: linear-gradient(top, $buttonTopColor, $buttonBottomColor)
+  background: -o-linear-gradient(top, $buttonTopColor, $buttonBottomColor)
+  background: -moz-linear-gradient(top, $buttonTopColor, $buttonBottomColor)
+  background: -webkit-linear-gradient(top, $buttonTopColor, $buttonBottomColor)
+  background: -ms-linear-gradient(top, $buttonTopColor, $buttonBottomColor)
+  background: -webkit-linear-gradient(top, $buttonTopColor, $buttonBottomColor)
+
+  &:active, &:hover
+    background: linear-gradient(top, $lightenTopColor,$lightenBottomColor)
+    background: -o-linear-gradient(top, $lightenTopColor, $lightenBottomColor)
+    background: -moz-linear-gradient(top, $lightenTopColor, $lightenBottomColor)
+    background: -webkit-linear-gradient(top, $lightenTopColor, $lightenBottomColor)
+    background: -ms-linear-gradient(top, $lightenTopColor, $lightenBottomColor)
+    background: -webkit-linear-gradient(top, $lightenTopColor, $lightenBottomColor)
+
+@mixin font-format
+  font-size: $fontSize
+  font-family: "Source Sans Pro", sans-serif
+  line-height: 1.5em
+
+@mixin button-shadow
+  -moz-box-shadow: 0px 1px 3px #EDEDED, inset 0px 1px 0px #E6634E
+  -webkit-box-shadow: 0px 1px 3px #EDEDED, inset 0px 1px 0px #E6634E
+  box-shadow: 0px 1px 3px #EDEDED, inset 0px 1px 0px #E6634E
+
+@mixin btn
+  border: 1px solid $buttonBorderColor
+  color: $buttonColor
+  min-width: 60px
+  font-size: 14px
+  letter-spacing: 0.6px
+  font-family: "Source Sans Pro", sans-serif
+  padding: 6px 9px 6px 9px
+  margin: 10px 0 20px 2px
+  cursor: pointer
+  @include button-shadow
+  @include rounded-corner(4px)
+  @include button-gradient
+  &:hover, &:active
+    color: white
+    @include no-decoration
+
+@mixin box-shadow($args)
+  -moz-box-shadow: $args
+  -o-box-shadow: $args
+  -webkit-box-shadow: $args
+  box-shadow: $args
+
+@mixin no-rounded-corner($side)
+  -moz-border-top-#{$side}-radius: 0px
+  -webkit-border-top-#{$side}-radius: 0px
+  -o-border-top-#{$side}-radius: 0px
+  border-top-#{$side}-radius: 0px
+  -moz-border-bottom-#{$side}-radius: 0px
+  -o-border-bottom-#{$side}-radius: 0px
+  -webkit-border-bottom-#{$side}-radius: 0px
+  border-bottom-#{$side}-radius: 0px
