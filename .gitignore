@@ -17,4 +17,3 @@
 # Ignore Rubinius files
 /.rbx
 
-Gemfile.lock
