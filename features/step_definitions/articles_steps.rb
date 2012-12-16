@@ -45,3 +45,9 @@ end
 When /^I go to the article's page$/ do
   visit article_path(@article)
 end
+
+Given /^I have the following articles?$/ do |table|
+  table.hashes.each do |hash|
+    FactoryGirl.create(:article, hash)
+  end
+end

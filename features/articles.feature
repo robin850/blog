@@ -5,7 +5,7 @@ Feature: Manage Articles
 
   Scenario: Index Action
     Given I have an article
-    When I go to the the index action
+    When I go to the index action
     Then I should see "Foo Bar"
     And a link to see more
 

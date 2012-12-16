@@ -1,4 +1,4 @@
-When /^I go to the the index action$/ do
+When /^I go to the index action$/ do
   visit "/articles"
   current_path.should eq(articles_path)
 end
@@ -13,6 +13,10 @@ end
 
 Then /^I should see "(.*?)"$/ do |content|
   page.should have_content(content)
+end
+
+Then /^I should not see "(.*?)"$/ do |content|
+  page.should_not have_content(content)
 end
 
 Then /^I choose "(.*?)"$/ do |elem|
