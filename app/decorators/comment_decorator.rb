@@ -1,6 +1,6 @@
 # encoding: utf-8
 class CommentDecorator < Draper::Base
-  decorates :article
+  decorates :comment
 
   def display
     klass = (model.admin?) ? "comment admin" : "comment"
