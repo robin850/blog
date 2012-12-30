@@ -7,6 +7,7 @@ ActiveAdmin.register Category do
     column "Nombre d'articles" do |category|
       category.articles.count
     end
+    default_actions
   end
   
 end
