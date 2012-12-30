@@ -16,6 +16,7 @@ gem 'dojo-rails'
 
 gem 'devise'
 gem 'cancan'
+gem 'activeadmin'
 
 gem 'simple_form'
 

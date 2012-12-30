@@ -1,6 +1,8 @@
 Blog::Application.routes.draw do
 
-  devise_for :users
+  ActiveAdmin.routes(self)
+
+  devise_for :users, ActiveAdmin::Devise.config
 
   match "feed" => "articles#read", :as => :feed, :defaults => { :format => :atom }
 
