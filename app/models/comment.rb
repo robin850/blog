@@ -7,5 +7,7 @@ class Comment < ActiveRecord::Base
     (self.admin == true) ? true : false
   end
 
-  validates :body, :author, :email, :presence => true
+  validates :body, :presence => true, :message => "Vous devez spécifier un message."
+  validates :author, :presence => true, :message => "Vous devez renseigner votre nom."
+  validates :email, :presence => true, :message => "Vous devez spéicifier votre e-mail."
 end
