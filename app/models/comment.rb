@@ -6,4 +6,6 @@ class Comment < ActiveRecord::Base
   def admin?
     (self.admin == true) ? true : false
   end
+
+  validates :body, :author, :email, :presence => true
 end
