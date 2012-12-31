@@ -64,7 +64,7 @@ class ArticleDecorator < Draper::Base
 
   def edit_link
     if h.can? :edit, model
-      " — " + h.link_to("éditer cet article", h.edit_article_path(model)).html_safe
+      " — " + h.link_to("éditer cet article", h.edit_admin_article_path(model)).html_safe
     else
       ""
     end
