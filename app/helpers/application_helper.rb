@@ -9,7 +9,11 @@ module ApplicationHelper
     doc = Nokogiri::HTML(html)
 
     doc.search("//code[@class]").each do |code|
-      code.replace Pygments.highlight(code.text.rstrip, :lexer => code[:class])
+      begin
+        code.replace Pygments.highlight(code.text.rstrip, :lexer => code[:class])
+      rescue MentosError
+        code.replace Pygments.highlight(code.text.rstrip)
+      end
       doc.search(".highlight").last["class"] = "highlight " + code[:class]
     end
     
