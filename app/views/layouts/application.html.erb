@@ -4,7 +4,6 @@
   <head>
     <title><%= yield(:title) %> - Robin Dupret</title>
     <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
     <%= auto_discovery_link_tag :atom, "/feed" %>
     <%= csrf_meta_tags %>
   </head>
@@ -27,5 +26,6 @@
 
     <%= render :partial => "footer" %>
 
+    <%= javascript_include_tag "application" %>
   </body>
 </html>
