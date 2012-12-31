@@ -7,9 +7,15 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     params[:comment][:admin] = true if current_user && current_user.admin?
-    @comment = @article.comments.create(params[:comment])
+    @comment = @article.comments.new(params[:comment])
 
-    redirect_to article_path(@article), :notice => "Commentaire ajouté."
+    if @comment.save
+      flash[:notice] = "Commentaire ajouté."
+    else
+      flash[:alert] = "Une erreur est survenue."
+    end
+
+    redirect_to article_path(@article)
   end
 
 
@@ -22,9 +28,11 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if @comment.update_attributes(params[:comment])
-      redirect_to article_path(@comment.article), notice: "Commentaire mis à jour."
+      flash[:notice] = "Comment mis à jour."
+      redirect_to article_path(@comment.article)
     else
-      render :action => "edit", :alert => "Un problème est survenu."
+      flash[:alert] = "Un problème est survenu."
+      render :action => "edit"
     end
   end
 
