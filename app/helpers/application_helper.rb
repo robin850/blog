@@ -45,11 +45,15 @@ module ApplicationHelper
 
 
   def show_or_index?
-    return ["show", "index"].include?(params[:action])
+    ["show", "index"].include?(params[:action])
+  end
+
+  def contact?
+    params[:action] == "contact"
   end
 
   def grid_size
-    show_or_index? ? 8 : 12
+    show_or_index? || contact? ? 8 : 12
   end
 
   def main_grid(&block)
@@ -64,5 +68,9 @@ module ApplicationHelper
 
   def github_path
     "https://github.com/robin850"
+  end
+
+  def google_plus_path
+    "https://plus.google.com/108745634161449276307"
   end
 end

@@ -22,4 +22,4 @@ Feature: Manage Comments
     Then I follow "Modifier"
     Then I fill in "Body" with "Foo bar"
     And I click on "Envoyer"
-    Then I should see "Commentaire mis à jour."
+    Then I should see "Comment mis à jour."

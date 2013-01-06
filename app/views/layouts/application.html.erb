@@ -19,7 +19,9 @@
       <%= main_grid do %>
         <%= yield %>
       <% end %>
+
       <%= render :partial => "sidebar" if show_or_index? %>
+      <%= render :partial => "contact_sidebar" if contact? %>
     </div>
 
     <%= clearer %>

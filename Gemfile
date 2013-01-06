@@ -34,6 +34,8 @@ gem 'thin'
 gem 'capistrano'
 gem 'minitest' # Fix an issue with Fedora
 
+gem 'active_attr'
+
 group :test do
 	gem 'capybara'
   gem 'rspec-rails'
