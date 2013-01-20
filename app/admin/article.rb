@@ -15,6 +15,7 @@ ActiveAdmin.register Article do
       f.input :slug
       f.input :description
       f.input :introduction
+      f.input :further, :label => "Voir plus"
     end
 
     f.inputs "Contenu" do

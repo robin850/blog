@@ -28,4 +28,8 @@ class Article < ActiveRecord::Base
       published.page(params[:page])
     end
   end
+
+  def further?
+    model.further.present?
+  end
 end

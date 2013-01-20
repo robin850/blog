@@ -19,7 +19,11 @@ class ArticleDecorator < Draper::Base
 
 
   def more
-    h.link_to("Lire la suite &raquo;".html_safe, h.article_path(model), class: "btn more_article")
+    if model.further?
+      h.link_to("Lire la suite &raquo;".html_safe, h.article_path(model), class: "btn more_article")
+    else
+      ""
+    end
   end
 
   # Methods use in show action
