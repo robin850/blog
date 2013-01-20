@@ -73,4 +73,12 @@ module ApplicationHelper
   def google_plus_path
     "https://plus.google.com/108745634161449276307"
   end
+
+  def contact_class
+    (params[:action] == "contact") ? "active" : ""
+  end
+
+  def blog_class
+    (["articles", "categories"].include?(params[:controller])) ? "active " : ""
+  end
 end

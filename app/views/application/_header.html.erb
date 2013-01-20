@@ -7,9 +7,8 @@
 
 		<%= content_tag(:div, :class => :grid_4) do %>
 			<ul class="nav">
-				<li><%= link_to "Blog", root_path, :class => :active %></li>
-				<li><%= link_to "Portfolio", "" %></li>
-				<li><%= link_to "Contact", contact_path %></li>
+				<li><%= link_to "Blog", root_path, :class => blog_class %></li>
+				<li><%= link_to "Contact", contact_path, :class => contact_class %></li>
 			</ul>
 		<% end %>
 
