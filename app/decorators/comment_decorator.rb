@@ -1,9 +1,9 @@
 # encoding: utf-8
-class CommentDecorator < Draper::Base
-  decorates :comment
+class CommentDecorator < Draper::Decorator
+  delegate_all
 
   def display
-    klass = (model.admin?) ? "comment admin" : "comment"
+    klass = (admin?) ? "comment admin" : "comment"
 
     h.content_tag(:div, class: klass) do
       avatar + content
@@ -14,7 +14,7 @@ class CommentDecorator < Draper::Base
 
     def avatar
       h.content_tag(:div, class: :avatar) do
-        h.image_tag(h.avatar_url(model, 66)) +
+        h.image_tag(h.avatar_url(source, 66)) +
         h.content_tag(:span, "", class: "avatar-overlay")
       end
     end
@@ -26,24 +26,24 @@ class CommentDecorator < Draper::Base
     end
 
     def published_at
-      h.l(model.created_at, :format => :long)
+      h.l(created_at, :format => :long)
     end
 
     def infos
       h.content_tag(:div, class: :info) do
-        h.content_tag(:span, model.author, class: :username) + " — " +
+        h.content_tag(:span, author, class: :username) + " — " +
         h.content_tag(:span, published_at, class: :date)
       end
     end
 
     def edit_action
       if h.can? :edit, Comment
-        h.link_to "Modifier", h.edit_article_comment_path(model.article, model)
+        h.link_to "Modifier", h.edit_article_comment_path(article, source)
       end
     end
 
     def body
-      h.markdown(model.body, true)
+      h.markdown(source.body, true)
     end
 
 end

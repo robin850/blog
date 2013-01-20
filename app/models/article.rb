@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug
 
-  attr_accessible :body, :description, :introduction, :title, :published, :category_ids, :slug
+  attr_accessible :body, :description, :introduction, :title, :published, :category_ids, :slug, :further
 
   default_scope order("created_at DESC")
 
@@ -29,7 +29,7 @@ class Article < ActiveRecord::Base
     end
   end
 
-  def further?
-    model.further.present?
+  def self.further?
+    self.further.present?
   end
 end

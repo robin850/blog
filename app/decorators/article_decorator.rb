@@ -1,8 +1,8 @@
 # encoding: utf-8
-class ArticleDecorator < Draper::Base
-  decorates :article
+class ArticleDecorator < Draper::Decorator
+  delegate_all
 
-  # Methods use in indexes
+
   def display
     h.content_tag(:div, :class => :article) do
       linked_title + description + more + h.clearer
@@ -10,25 +10,25 @@ class ArticleDecorator < Draper::Base
   end
 
   def linked_title
-    h.content_tag(:h1, h.link_to(model.title, h.article_path(model)))
+    h.content_tag(:h1, h.link_to(title, h.article_path(source)))
   end
 
   def description
-    h.content_tag(:div, h.markdown(model.description), :class => :description)
+    h.content_tag(:div, h.markdown(source.description), :class => :description)
   end
 
 
   def more
-    if model.further?
-      h.link_to("Lire la suite &raquo;".html_safe, h.article_path(model), class: "btn more_article")
+    if source.further?
+      h.link_to("Lire la suite &raquo;".html_safe, h.article_path(source), class: "btn more_article")
     else
       ""
     end
   end
 
-  # Methods use in show action
+
   def body
-    h.content_tag(:div, h.markdown(model.body), class: :content)
+    h.content_tag(:div, h.markdown(source.body), class: :content)
   end
 
   def license
@@ -39,7 +39,7 @@ class ArticleDecorator < Draper::Base
   end
 
   def introduction
-    h.content_tag(:div, model.introduction, class: :introduction) if model.introduction
+    h.content_tag(:div, source.introduction, class: :introduction) if source.introduction
   end
 
   def infos
@@ -49,16 +49,15 @@ class ArticleDecorator < Draper::Base
   end
 
   def date
-    h.l(model.created_at, :format => :long).titlecase + " — "
+    h.l(created_at, :format => :long).titlecase + " — "
   end
 
   def categories
     html = ""
-    categories = model.categories
 
-    categories.each do |category|
+    source.categories.each do |category|
       html += category.name
-      if category != categories.last
+      if category != source.categories.last
         html += ", "
       end
     end
@@ -67,8 +66,8 @@ class ArticleDecorator < Draper::Base
   end
 
   def edit_link
-    if h.can? :edit, model
-      " — " + h.link_to("éditer cet article", h.edit_admin_article_path(model)).html_safe
+    if h.can? :edit, source
+      " — " + h.link_to("éditer cet article", h.edit_admin_article_path(source)).html_safe
     else
       ""
     end
