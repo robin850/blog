@@ -1,3 +1,4 @@
+# encoding: utf-8
 class InfoController < ApplicationController
 
   def about
@@ -12,6 +13,8 @@ class InfoController < ApplicationController
       @message = Message.new(params[:message])
       if @message.valid?
         ContactMailer.notification(@message).deliver
+        flash[:notice] = "Merci, votre message a été envoyé !"
+        redirect_to contact_path
       else
         render :contact
       end
