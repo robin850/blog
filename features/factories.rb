@@ -9,6 +9,7 @@ FactoryGirl.define do
     description "Lorem ipsum dolor"
     introduction "sit amet"
     published :on
+    further true
   end
 
   factory :comment do
