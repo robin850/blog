@@ -37,7 +37,7 @@ Given /^I am an admin user$/ do
     fill_in "user_email", :with => email
     fill_in "user_password", :with => password
   end
-  click_button "Login"
+  click_button "login"
 end
 
 Then /^I follow "(.*?)"$/ do |link|
