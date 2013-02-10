@@ -13,7 +13,7 @@ class Article < ActiveRecord::Base
   scope :published, where(:published => :on)
   scope :unpublished, where(:published => :off)
 
-  validates :body, :title, :presence => true
+  validates :body, :title, :slug, :presence => true
 
   self.per_page = 10
 
