@@ -17,3 +17,5 @@
 # Ignore Rubinius files
 /.rbx
 
+# Ignore SublimePTY port files
+repl-port
