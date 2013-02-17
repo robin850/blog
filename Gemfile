@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 
 gem 'pg'
 
@@ -12,15 +12,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'dojo-rails'
-
-gem 'devise'
 gem 'cancan'
 gem 'activeadmin'
 
-gem 'simple_form'
+gem 'simple_form', '~> 2.0.4'
 
-gem 'draper'
+gem 'draper', '~> 1.0'
 
 gem 'nokogiri'
 gem 'redcarpet'
