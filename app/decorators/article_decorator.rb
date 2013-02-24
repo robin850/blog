@@ -6,7 +6,7 @@ class ArticleDecorator < Draper::Decorator
 
   def display
     content_tag(:div, :class => :article) do
-      linked_title + description + more + clearer
+      linked_title + main_infos + description + more + clearer
     end
   end
 
@@ -57,13 +57,13 @@ class ArticleDecorator < Draper::Decorator
     html = ""
 
     source.categories.each do |category|
-      html += category.name
+      html += link_to(category.name, category_path(category))
       if category != source.categories.last
         html += ", "
       end
     end
 
-    return html
+    return html.html_safe
   end
 
   def edit_link
@@ -86,5 +86,28 @@ class ArticleDecorator < Draper::Decorator
 
     def license_information
       raw("Cet article est mis à disposition selon les termes de la " + link_to("license Creative Commons Attribution (CC-BY-NC-SA)", license_url) + ".")
+    end
+
+    def main_infos
+      content_tag(:div, :class => :"article-infos") do
+        date_info + comments_info + categories_info
+      end + clearer
+    end
+
+    def date_info
+      content_tag(:div, image_tag("date.svg") + l(source.created_at, :format => :date))
+    end
+
+    def comments_info
+      content_tag(:div) do
+        target_text = pluralize(source.comments.count, "commentaire") 
+        image_tag("comments.svg") + link_to(target_text, article_path(source), :anchor => "comments") 
+      end
+    end
+
+    def categories_info
+      content_tag(:div) do
+        image_tag("tags.svg") + self.categories
+      end
     end
 end

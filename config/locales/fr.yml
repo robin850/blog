@@ -72,6 +72,7 @@ fr:
       default: "%d %B %Y %H:%M:%S"
       short: "%d %b %H:%M"
       long: "%A %d %B %Y à %H:%M"
+      date: "%d/%m/%Y"
     am: 'am'
     pm: 'pm'
 
