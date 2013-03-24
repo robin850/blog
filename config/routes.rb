@@ -7,7 +7,6 @@ Blog::Application.routes.draw do
   match "feed" => "articles#read", :as => :feed, :defaults => { :format => :atom }
 
   match "/cgu" => "info#cgu", :as => :cgu
-  match "/a-propos" => "info#about", :as => :about
   match "/contact" => "info#contact", :as => :contact
   match "/about" => redirect("a-propos")
 

@@ -1,9 +1,6 @@
 # encoding: utf-8
 class InfoController < ApplicationController
 
-  def about
-  end
-
   def cgu
   end
 

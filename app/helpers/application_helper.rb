@@ -74,6 +74,10 @@ module ApplicationHelper
     "https://plus.google.com/108745634161449276307"
   end
 
+  def source_path
+    github_path + "/blog"
+  end
+
   def contact_class
     (params[:action] == "contact") ? "active" : ""
   end
