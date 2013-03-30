@@ -27,7 +27,8 @@ gem 'friendly_id'
 gem 'will_paginate'
 
 gem 'thin'
-gem 'capistrano'
+
+gem 'slim'
 
 gem 'active_attr'
 

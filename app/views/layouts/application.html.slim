@@ -1,0 +1,28 @@
+doctype html
+html
+
+  head
+    title = yield(:title) + "- Robin Dupret"
+    = stylesheet_link_tag "application", :media => "all"
+    = auto_discovery_link_tag :atom, "/feed"
+    = csrf_meta_tags
+
+  body
+
+    = render :partial => "header"
+
+    div#container.container_12
+      = content_tag(:div, notice, :class => :notice) if notice
+      = content_tag(:div, alert, :class => :alert) if alert
+
+      = main_grid do
+        = yield
+
+      = render :partial => "sidebar" if show_or_index?
+      = render :partial => "contact_sidebar" if contact?
+    
+    = clearer
+
+    = render :partial => "footer"
+
+    = javascript_include_tag "application"

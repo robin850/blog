@@ -1,0 +1,13 @@
+div.grid_4.sidebar.omega
+  h3 Categories
+
+  ul
+    - categories = @categories ? @categories : Category.all
+    - for category in categories
+      li = link_to category.name, category_path(category)
+    = clearer
+
+  h3 Recherche
+  = form_tag "/", :method => :get do
+    = text_field_tag :query, params[:query]
+    = submit_tag "", :name => nil, :id => "submit"

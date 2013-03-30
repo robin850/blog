@@ -1,0 +1,10 @@
+- title "Contact"
+
+h1 Me contacter
+
+= simple_form_for @message, :url => "" do |f|
+  = f.input :name, :label => "Votre nom"
+  = f.input :email, :label => "Votre e-mail"
+  = f.input :message, :as => :text
+
+  = f.button :submit, :value => "Envoyer"
