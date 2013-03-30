@@ -13,6 +13,14 @@ $ rails s
 
 Then go to localhost:3000.
 
+## Tests
+
+The test suite is written with Cucumber :heart: ! To run the suite, just exec : 
+
+```bash
+$ rake cucumber
+```
+
 ## License
 
 Copyright (c) 2012+ Robin Dupret
