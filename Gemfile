@@ -28,7 +28,6 @@ gem 'will_paginate'
 
 gem 'thin'
 gem 'capistrano'
-gem 'minitest' # Fix an issue with Fedora
 
 gem 'active_attr'
 
