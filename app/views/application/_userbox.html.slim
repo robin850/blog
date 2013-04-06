@@ -2,5 +2,6 @@ div.avatar
   = image_tag avatar_url(current_user, 68)
   span.avatar-overlay
 
-= link_to "Administration", "/admin" if current_user.admin?
-= link_to "Deconnexion", destroy_user_session_path
+ul
+  li = link_to "Administration", "/admin" if current_user.admin?
+  li = link_to "Deconnexion", destroy_user_session_path
