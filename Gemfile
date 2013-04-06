@@ -41,5 +41,3 @@ group :test do
   gem 'rb-inotify', '~> 0.8.8'
   gem 'factory_girl_rails'
 end
-
-gem 'zeus'
