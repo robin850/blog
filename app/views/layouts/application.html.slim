@@ -2,7 +2,7 @@ doctype html
 html lang="fr"
 
   head
-    title = yield(:title) + "- Robin Dupret"
+    title = yield(:title) + " — Robin Dupret"
     = stylesheet_link_tag "application", :media => "all"
     = auto_discovery_link_tag :atom, "/feed"
     = csrf_meta_tags
@@ -20,7 +20,7 @@ html lang="fr"
 
       = render :partial => "sidebar" if show_or_index?
       = render :partial => "contact_sidebar" if contact?
-    
+
     = clearer
 
     = render :partial => "footer"
