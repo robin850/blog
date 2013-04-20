@@ -1,38 +1,34 @@
 # encoding: utf-8
 require 'pygments'
 require 'redcarpet/compat'
-require 'nokogiri'
 
 module ApplicationHelper
-
-  def syntax_highlight(html)
-    doc = Nokogiri::HTML(html)
-
-    doc.search("//code[@class]").each do |code|
+  class HTMLWithPygments < Redcarpet::Render::HTML
+    def block_code(code, lang)
       begin
-        code.replace Pygments.highlight(code.text.rstrip, :lexer => code[:class])
+        Pygments.highlight(code, :lexer => lang)
       rescue MentosError
-        code.replace Pygments.highlight(code.text.rstrip)
+        code
       end
-      doc.search(".highlight").last["class"] = "highlight " + code[:class]
     end
-    
-    doc.to_s
+  end
+
+  def markdown(markdown, filter_html = false)
+    options = {
+      :autolink => true,
+      :no_intraemphasis => true,
+      :fenced_code_blocks => true,
+      :tables => true,
+      :filter_html => filter_html
+    }
+
+    renderer = HTMLWithPygments.new(:hard_wrap => true)
+    Redcarpet::Markdown.new(renderer, options).render(markdown).html_safe
   end
 
   def clearer
     content_tag(:div, "", style: "clear:both")
   end
-
-
-  def markdown(markdown, filter_html = false)
-    md_options = [:hard_wrap, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode, :tables]
-    md_options.push(:filter_html) if filter_html
-
-    html = Markdown.new(markdown, *md_options).to_html
-    syntax_highlight(html).html_safe
-  end
-
 
   def avatar_url(user, size = 100)
     gravatar_md5 = Digest::MD5.hexdigest(user.email)
@@ -42,7 +38,6 @@ module ApplicationHelper
   def title(title)
     content_for(:title) { title }
   end
-
 
   def show_or_index?
     ["show", "index"].include?(params[:action])
