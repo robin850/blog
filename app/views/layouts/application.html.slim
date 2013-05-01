@@ -3,6 +3,14 @@ html lang="fr"
 
   head
     title = yield(:title) + " — Robin Dupret"
+    meta name="copyright" content="http://robin-dupret.com"
+    meta name="language" content="fr"
+    meta http-equiv="content-language" content="fr"
+    meta property="og:site_name" content="Robin Dupret"
+    meta property="og:title" content="Robin Dupret - Blog"
+    meta property="og:url" content="http://robin-dupret.com/"
+    meta property="og:language" content="fr"
+    meta charset="utf-8"
     = stylesheet_link_tag "application", :media => "all"
     = auto_discovery_link_tag :atom, "/feed"
     = csrf_meta_tags
