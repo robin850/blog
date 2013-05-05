@@ -5,3 +5,6 @@ h3#add_comment Ajouter un commentaire
   = f.input :email, :label => "E-mail"
   = f.input :body, :label => "Votre commentaire"
   = f.button :submit, :value => "Envoyer"
+
+  br
+  em Vous pouvez utiliser #{link_to "Markdown", "http://daringfireball.net/projects/markdown/syntax"} pour mettre en forme votre message.
