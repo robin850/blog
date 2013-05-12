@@ -3,6 +3,8 @@ class Comment < ActiveRecord::Base
   attr_accessible :body, :author, :email, :admin
   belongs_to :article
 
+  default_scope order("created_at asc")
+
   def admin?
     (self.admin == true) ? true : false
   end
