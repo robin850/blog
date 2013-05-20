@@ -1,6 +1,6 @@
 .clearer
   clear: both
-  
+
 .notice
   @include notification
   background: $noticeBackgroundColor
@@ -27,6 +27,8 @@ ul
   list-style-type: disc
   margin-left: 40px
 
+ul ul, ul ol
+  margin-bottom: 0!important
 
 h1
   font-size: 1.5em
@@ -42,7 +44,7 @@ h5, h6
 
 
 h1, h2, h3, h4, h5, h6
-  color: #2e2e2e 
+  color: #2e2e2e
   font-family: "Shanti", sans-serif
   line-height: 1em
 
@@ -54,7 +56,7 @@ a
   -webkit-transition-duration: 0.3s
   &:hover
     @include underlined
-    color: $clinkColor      
+    color: $clinkColor
   &:active
     color: $clinkColor
 
