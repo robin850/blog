@@ -10,6 +10,7 @@ FactoryGirl.define do
     published :on
     further true
   end
+
   factory :comment do
     body "Hello world!"
     author "John Doe"
