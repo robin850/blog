@@ -1,6 +1,5 @@
 # encoding: utf-8
 ActiveAdmin.register Article do
-
   index do
     selectable_column
     column :id
@@ -28,7 +27,5 @@ ActiveAdmin.register Article do
     end
 
     f.actions
-
   end
-
 end

@@ -1,8 +1,7 @@
 # encoding: utf-8
 class ArticlesController < ApplicationController
-
   load_and_authorize_resource
-  
+
   def index
     @articles = Article.search(params)
   end

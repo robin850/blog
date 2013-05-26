@@ -1,6 +1,5 @@
 # encoding: utf-8
 class InfoController < ApplicationController
-
   def cgu
   end
 
@@ -17,5 +16,4 @@ class InfoController < ApplicationController
       end
     end
   end
-
 end

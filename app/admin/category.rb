@@ -1,5 +1,4 @@
 ActiveAdmin.register Category do
-  
   index do
     selectable_column
     column :id
@@ -9,5 +8,4 @@ ActiveAdmin.register Category do
     end
     default_actions
   end
-  
 end

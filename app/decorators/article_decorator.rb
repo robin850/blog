@@ -3,7 +3,6 @@ class ArticleDecorator < Draper::Decorator
   include Draper::LazyHelpers
   delegate_all
 
-
   def display
     content_tag(:div, :class => :article) do
       linked_title + main_infos + description + more + clearer
@@ -18,7 +17,6 @@ class ArticleDecorator < Draper::Decorator
     content_tag(:div, markdown(source.description), :class => :description)
   end
 
-
   def more
     if source.further?
       link_to("Lire la suite &raquo;".html_safe, article_path(source), class: "btn more_article")
@@ -26,7 +24,6 @@ class ArticleDecorator < Draper::Decorator
       ""
     end
   end
-
 
   def body
     content_tag(:div, markdown(source.body), class: :content)
@@ -100,8 +97,8 @@ class ArticleDecorator < Draper::Decorator
 
     def comments_info
       content_tag(:div) do
-        target_text = pluralize(source.comments.count, "commentaire") 
-        image_tag("comments.svg") + link_to(target_text, article_path(source), :anchor => "comments") 
+        target_text = pluralize(source.comments.count, "commentaire")
+        image_tag("comments.svg") + link_to(target_text, article_path(source), :anchor => "comments")
       end
     end
 
