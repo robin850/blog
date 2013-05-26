@@ -18,11 +18,11 @@ gem 'simple_form', '~> 2.0.4'
 
 gem 'draper', '~> 1.0'
 
-gem 'nokogiri'
-gem 'redcarpet'
-gem 'pygments.rb'
+gem 'nokogiri', '~> 1.5.9'
+gem 'redcarpet', '~> 2.3.0'
+gem 'pygments.rb', '~> 0.5.0'
 
-gem 'friendly_id'
+gem 'friendly_id', '~> 4.0.9'
 
 gem 'will_paginate'
 
@@ -33,11 +33,11 @@ gem 'slim'
 gem 'active_attr'
 
 group :test do
-	gem 'capybara'
+  gem 'capybara'
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'guard-cucumber'
-	gem 'database_cleaner'
+  gem 'database_cleaner'
   gem 'rb-inotify', '~> 0.8.8'
   gem 'factory_girl_rails'
 end
