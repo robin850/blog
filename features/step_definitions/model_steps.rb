@@ -16,3 +16,8 @@ Then(/^I should have (\d+) (.*?)$/) do |nb, model|
   model = model.singularize.camelize.constantize
   model.count.should eq(nb.to_i)
 end
+
+When(/^I go to the last (.*?)'s page$/) do |model|
+  model = model.singularize
+  visit(eval("#{model}_path(#{model.camelize.constantize}.last)"))
+end

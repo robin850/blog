@@ -37,7 +37,7 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def introduction
-    content_tag(:div, source.introduction, class: :introduction) if source.introduction
+    content_tag(:div, markdown(source.introduction), class: :introduction) if source.introduction
   end
 
   def infos

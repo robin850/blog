@@ -6,7 +6,7 @@ FactoryGirl.define do
     body "Hello world"
     slug "foo-bar"
     description "Lorem ipsum dolor"
-    introduction "sit amet"
+    introduction "sit amet [foo](http://bar.net)"
     published :on
     further true
   end

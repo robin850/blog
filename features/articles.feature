@@ -8,3 +8,8 @@ Feature: Manage Articles
     When I go to the index action
     Then I should see "Foo Bar"
     And a link to see more
+
+  Scenario: Markdown in Introduction
+    Given I have an article
+    When I go to the last article's page
+    Then I follow "foo"
