@@ -8,7 +8,7 @@ module ApplicationHelper
       begin
         Pygments.highlight(code, :lexer => lang)
       rescue MentosError
-        code
+        "<div class='highlight'><pre>#{code}</pre></div>"
       end
     end
   end
