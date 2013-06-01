@@ -20,8 +20,10 @@ html lang="fr"
     = render :partial => "header"
 
     div#container.container_12
-      = content_tag(:div, notice, :class => :notice) if notice
-      = content_tag(:div, alert, :class => :alert) if alert
+      -if notice
+        .notice = notice
+      -if alert
+        .alert = alert
 
       = main_grid do
         = yield
@@ -29,7 +31,7 @@ html lang="fr"
       = render :partial => "sidebar" if show_or_index?
       = render :partial => "contact_sidebar" if contact?
 
-    = clearer
+    .clearer
 
     = render :partial => "footer"
 

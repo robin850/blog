@@ -1,0 +1,29 @@
+div.highlight {
+  overflow-x: auto;
+  margin-bottom: $fontSize;
+  * {
+    font-family: Consolas, Monaco, "Lucida Console", monospace;
+    font-size: 15px;
+  }
+  &::-webkit-scrollbar {
+    height: 8px;
+    background: #3B3B3B;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #7D7D7D;
+    border-radius: 5px;
+  }
+}
+
+// Span code blocks
+code {
+  display: inline-block;
+  margin: 0 1px;
+  padding: 0px 5px;
+  border: 1px solid darken(#eaeaea, 4%);
+  background-color: lighten(#f8f8f8, 4%);
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}

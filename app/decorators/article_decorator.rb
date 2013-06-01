@@ -19,7 +19,7 @@ class ArticleDecorator < Draper::Decorator
 
   def more
     if source.further?
-      link_to("Lire la suite &raquo;".html_safe, article_path(source), class: "btn more_article")
+      link_to("Lire la suite &raquo;".html_safe, article_path(source), class: "btn more")
     else
       ""
     end

@@ -1,0 +1,24 @@
+table  {
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+  border: 1px solid #BBB;
+  margin-bottom: 1.5em;
+  background-color: lighten(#f8f8f8, 4%);
+}
+
+td {
+  border: 1px solid #BBB;
+  padding: 6px 5px 3px 12px;
+}
+
+tr:nth-child(2n) { background: #F8F8F8; }
+
+th {
+  background: lighten(#101010, 20%);
+  color: lighten(#f8f8f8, 4%);
+  height: 35px;
+  padding-top: 10px;
+}
+
+tr { border: 1px solid #BBB; }

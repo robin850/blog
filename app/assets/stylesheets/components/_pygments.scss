@@ -1,0 +1,57 @@
+div.highlight {
+  border: 1px solid #181818;
+  background: #181818;
+  padding: 16px;
+  color: #F8F8F8;
+
+  .hll { background-color: #ffffcc; }
+  .c, .cm, .c1, .cs, .sd, .ge { font-style: italic; }
+  .gh, .gu, .nc, .ni, .nf, .nn, .nt, .ow, .se, .si, .gp, .gs {
+    font-weight: bold; }
+  .gd  { background: #420E09 }
+  .gr  { background: #B22518 }
+  .gi  { background: #253B22 }
+  .c   { color: #5F5A60; }
+  .err { border:#B22518; }
+  .k   { color: #CDA869; }
+  .cm  { color: #5F5A60; }
+  .cp  { color: #5F5A60; }
+  .c1  { color: #5F5A60; }
+  .cs  { color: #5F5A60; }
+  .gh  { color: #000080; }
+  .gu  { color: #800080; }
+  .kd  { color: #e9df8f; }
+  .kp  { color: #9B703F; }
+  .na  { color: #F9EE98; }
+  .nb  { color: #CDA869; }
+  .nc  { color: #9B859D; }
+  .no  { color: #9B859D; }
+  .nd  { color: #7587A6; }
+  .ni  { color: #CF6A4C; }
+  .nf  { color: #9B703F; }
+  .nn  { color: #9B859D; }
+  .nt  { color: #CDA869; }
+  .nv  { color: #7587A6; }
+  .ow  { color: #AA22FF; }
+  .w   { color: #141414; }
+  .mf  { color: #CF6A4C; }
+  .mh  { color: #CF6A4C; }
+  .mi  { color: #CF6A4C; }
+  .mo  { color: #CF6A4C; }
+  .sb  { color: #8F9D6A; }
+  .sc  { color: #8F9D6A; }
+  .sd  { color: #8F9D6A; }
+  .s2  { color: #8F9D6A; }
+  .se  { color: #F9EE98; }
+  .sh  { color: #8F9D6A; }
+  .si  { color: #DAEFA3; }
+  .sx  { color: #8F9D6A; }
+  .sr  { color: #E9C062; }
+  .s1  { color: #8F9D6A; }
+  .ss  { color: #CF6A4C; }
+  .bp  { color: #00aaaa; }
+  .vc  { color: #7587A6; }
+  .vg  { color: #7587A6; }
+  .vi  { color: #7587A6; }
+  .il  { color: #009999; }
+}
