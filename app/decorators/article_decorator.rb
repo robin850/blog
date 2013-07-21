@@ -5,7 +5,7 @@ class ArticleDecorator < Draper::Decorator
 
   def display
     content_tag(:div, :class => :article) do
-      linked_title + main_infos + description + more + clearer
+      linked_title + main_infos + description + more
     end
   end
 
@@ -88,7 +88,7 @@ class ArticleDecorator < Draper::Decorator
     def main_infos
       content_tag(:div, :class => :"article-infos") do
         date_info + comments_info + categories_info
-      end + clearer
+      end
     end
 
     def date_info

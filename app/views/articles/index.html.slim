@@ -2,7 +2,8 @@
 
 - if !@articles.blank?
   - for article in @articles.decorate
-  	= article.display
+    = article.display
+    .clearer
 
   = will_paginate @articles
 - else

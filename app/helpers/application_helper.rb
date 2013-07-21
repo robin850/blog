@@ -27,10 +27,6 @@ module ApplicationHelper
     Redcarpet::Markdown.new(renderer, options).render(markdown).html_safe
   end
 
-  def clearer
-    content_tag(:div, "", style: "clear:both")
-  end
-
   def avatar_url(user, size = 100)
     gravatar_md5 = Digest::MD5.hexdigest(user.email)
     "http://gravatar.com/avatar/#{gravatar_md5}.png?&s=#{size}"
