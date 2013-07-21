@@ -6,23 +6,24 @@ module ApplicationHelper
   class HTMLWithPygments < Redcarpet::Render::HTML
     def block_code(code, lang)
       begin
-        Pygments.highlight(code, :lexer => lang)
+        Pygments.highlight(code, lexer: lang)
       rescue MentosError
-        "<div class='highlight'><pre>#{code}</pre></div>"
+        content_tag(:div, class: :highlight) do
+          content_tag(:pre, code)
+        end
       end
     end
   end
 
   def markdown(markdown, filter_html = false)
     options = {
-      :autolink => true,
-      :no_intraemphasis => true,
-      :fenced_code_blocks => true,
-      :tables => true,
-      :filter_html => filter_html
+      autolink: true,
+      no_intra_emphasis: true,
+      fenced_code_blocks: true,
+      tables: true
     }
 
-    renderer = HTMLWithPygments.new(:hard_wrap => true)
+    renderer = HTMLWithPygments.new(hard_wrap: true, filter_html: filter_html)
     Redcarpet::Markdown.new(renderer, options).render(markdown).html_safe
   end
 
