@@ -4,7 +4,7 @@ class ArticleDecorator < Draper::Decorator
   delegate_all
 
   def display
-    content_tag(:div, :class => :article) do
+    content_tag(:div, class: :article) do
       linked_title + main_infos + description + more
     end
   end
@@ -14,7 +14,7 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def description
-    content_tag(:div, markdown(source.description), :class => :description)
+    content_tag(:div, markdown(source.description), class: :description)
   end
 
   def more
@@ -47,7 +47,7 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def date
-    l(created_at, :format => :long).titlecase + " — "
+    l(created_at, format: :long).titlecase + " — "
   end
 
   def categories

@@ -27,7 +27,7 @@ class CommentDecorator < Draper::Decorator
     end
 
     def published_at
-      l(created_at, :format => :long)
+      l(created_at, format: :long)
     end
 
     def infos

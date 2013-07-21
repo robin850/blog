@@ -49,7 +49,7 @@ module ApplicationHelper
   end
 
   def main_grid(&block)
-    content_tag(:div, :class => "grid_#{grid_size}") do
+    content_tag(:div, class: "grid_#{grid_size}") do
       yield
     end
   end

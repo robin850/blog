@@ -42,7 +42,7 @@ end
 Given(/^I am an admin user$/) do
   email = 'foo@bar.net'
   password = 'secret'
-  User.new(:email => email, :password => password, :password_confirmation => password, :admin => true).save!
+  User.new(email: email, password: password, password_confirmation: password, admin: true).save!
 
   visit '/admin'
   within("form") do

@@ -4,7 +4,7 @@ class ContactMailer < ActionMailer::Base
 
   def notification(message)
     @message = message
-    mail :to => "robin.dupret@gmail.com", 
-         :subject => "[Contact] #{@message.name} a essayé de vous contacter"
+    mail to: "robin.dupret@gmail.com",
+         subject: "[Contact] #{@message.name} a essayé de vous contacter"
   end
 end

@@ -1,5 +1,5 @@
 # encoding: utf-8
-ActiveAdmin.register Comment, :as => "Commentaires" do
+ActiveAdmin.register Comment, as: "Commentaires" do
   index do
     selectable_column
     column :id
