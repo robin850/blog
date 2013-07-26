@@ -15,6 +15,7 @@ ActiveAdmin.register Article do
       f.input :description
       f.input :introduction
       f.input :further, :label => "Voir plus"
+      f.input :commentable, :label => "Autoriser les commentaires"
     end
 
     f.inputs "Contenu" do

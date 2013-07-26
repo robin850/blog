@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130726175348) do
+ActiveRecord::Schema.define(:version => 20130726182149) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -19,11 +19,12 @@ ActiveRecord::Schema.define(:version => 20130726175348) do
     t.text     "introduction"
     t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.string   "published"
     t.string   "slug"
     t.boolean  "further"
+    t.boolean  "commentable",  :default => true
   end
 
   add_index "articles", ["slug"], :name => "index_articles_on_slug", :unique => true

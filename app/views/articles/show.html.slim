@@ -6,5 +6,9 @@ h1 = yield(:title)
 = @article.body
 = @article.license
 
-= render :partial => "comments/render"
-= render :partial => "comments/create"
+- if @article.commentable?
+  = render :partial => "comments/render"
+  = render :partial => "comments/create"
+- else
+  p
+    em Les commentaires sont désactivés sur cet article.

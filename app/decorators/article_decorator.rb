@@ -96,9 +96,13 @@ class ArticleDecorator < Draper::Decorator
     end
 
     def comments_info
-      content_tag(:div) do
-        target_text = pluralize(model.comments.count, "commentaire")
-        image_tag("comments.svg") + link_to(target_text, article_path(model), :anchor => "comments")
+      if model.commentable?
+        content_tag(:div) do
+          target_text = pluralize(model.comments.count, "commentaire")
+          image_tag("comments.svg") + link_to(target_text, article_path(model), :anchor => "comments")
+        end
+      else
+        ""
       end
     end
 
