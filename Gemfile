@@ -12,6 +12,7 @@ group :assets do
 end
 
 gem 'cancan'
+gem 'jquery-rails', '2.3.0'
 gem 'activeadmin', '~> 0.5.0'
 
 gem 'simple_form', '~> 2.0.4'
