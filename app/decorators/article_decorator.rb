@@ -95,7 +95,7 @@ class ArticleDecorator < Draper::Decorator
     def main_infos
       div("article-infos") do
         date_info + comments_info + categories_info
-      end
+      end + div(:clearer)
     end
 
     def date_info
