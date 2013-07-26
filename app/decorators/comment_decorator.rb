@@ -6,7 +6,7 @@ class CommentDecorator < Draper::Decorator
   def display
     klass = (admin?) ? "comment admin" : "comment"
 
-    content_tag(:div, class: klass) do
+    div(klass) do
       avatar + content
     end
   end
@@ -14,14 +14,14 @@ class CommentDecorator < Draper::Decorator
   private
 
     def avatar
-      content_tag(:div, class: :avatar) do
+      div(:avatar) do
         image_tag(h.avatar_url(model, 66)) +
         content_tag(:span, "", class: "avatar-overlay")
       end
     end
 
     def content
-      content_tag(:div, class: :content) do
+      div(:content) do
         infos + edit_action + body
       end
     end
@@ -31,7 +31,7 @@ class CommentDecorator < Draper::Decorator
     end
 
     def infos
-      content_tag(:div, class: :info) do
+      div(:info) do
         content_tag(:span, author, class: :username) + " — " +
         content_tag(:span, published_at, class: :date)
       end
@@ -46,5 +46,4 @@ class CommentDecorator < Draper::Decorator
     def body
       markdown(model.body, true)
     end
-
 end

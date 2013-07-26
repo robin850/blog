@@ -4,17 +4,20 @@ class ArticleDecorator < Draper::Decorator
   delegate_all
 
   def display
-    content_tag(:div, class: :article) do
+    div(:article) do
       linked_title + main_infos + description + more
     end
   end
 
   def linked_title
-    content_tag(:h1, link_to(title, article_path(model)))
+    link = link_to(title, article_path(model))
+    content_tag(:h1, link)
   end
 
   def description
-    content_tag(:div, markdown(model.description), class: :description)
+    div(:description) do
+      markdown(model.description)
+    end
   end
 
   def more
@@ -26,22 +29,26 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def body
-    content_tag(:div, markdown(model.body), class: :content)
+    div(:content) do
+      markdown(model.body)
+    end
   end
 
   def license
-    content_tag(:div, class: "license") do
+    div(:license) do
       link_to(image_tag(license_image_path), license_url) +
       content_tag(:p, license_information)
     end
   end
 
   def introduction
-    content_tag(:div, markdown(model.introduction), class: :introduction) if model.introduction
+    div(:introduction) do
+      markdown(model.introduction)
+    end if model.introduction
   end
 
   def infos
-    content_tag(:div, class: :infos) do
+    div(:infos) do
       raw(date + categories + edit_link)
     end
   end
@@ -86,20 +93,25 @@ class ArticleDecorator < Draper::Decorator
     end
 
     def main_infos
-      content_tag(:div, :class => :"article-infos") do
+      div("article-infos") do
         date_info + comments_info + categories_info
       end
     end
 
     def date_info
-      content_tag(:div, image_tag("date.svg") + l(model.created_at, :format => :date))
+      div(:date) do
+        image_tag("date.svg") +
+        l(model.created_at, :format => :date)
+      end
     end
 
     def comments_info
       if model.commentable?
-        content_tag(:div) do
+        div("comments-info") do
           target_text = pluralize(model.comments.count, "commentaire")
-          image_tag("comments.svg") + link_to(target_text, article_path(model), :anchor => "comments")
+
+          image_tag("comments.svg") +
+          link_to(target_text, article_path(model), :anchor => "comments")
         end
       else
         ""
@@ -107,7 +119,7 @@ class ArticleDecorator < Draper::Decorator
     end
 
     def categories_info
-      content_tag(:div) do
+      div("categories-info") do
         image_tag("tags.svg") + self.categories
       end
     end

@@ -49,7 +49,7 @@ module ApplicationHelper
   end
 
   def main_grid(&block)
-    content_tag(:div, class: "grid_#{grid_size}") do
+    div("grid_#{grid_size}") do
       yield
     end
   end
@@ -76,5 +76,13 @@ module ApplicationHelper
 
   def blog_class
     (["articles", "categories"].include?(params[:controller])) ? "active " : ""
+  end
+
+  def div(klass, content = "", &block)
+    if block_given?
+      content_tag(:div, :class => klass, &block)
+    else
+      content_tag(:div, content, :class => klass)
+    end
   end
 end
