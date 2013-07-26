@@ -15,7 +15,7 @@ class CommentDecorator < Draper::Decorator
 
     def avatar
       content_tag(:div, class: :avatar) do
-        image_tag(h.avatar_url(source, 66)) +
+        image_tag(h.avatar_url(model, 66)) +
         content_tag(:span, "", class: "avatar-overlay")
       end
     end
@@ -39,12 +39,12 @@ class CommentDecorator < Draper::Decorator
 
     def edit_action
       if can? :edit, Comment
-        link_to "Modifier", edit_article_comment_path(article, source)
+        link_to "Modifier", edit_article_comment_path(article, model)
       end
     end
 
     def body
-      markdown(source.body, true)
+      markdown(model.body, true)
     end
 
 end

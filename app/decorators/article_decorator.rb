@@ -10,23 +10,23 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def linked_title
-    content_tag(:h1, link_to(title, article_path(source)))
+    content_tag(:h1, link_to(title, article_path(model)))
   end
 
   def description
-    content_tag(:div, markdown(source.description), class: :description)
+    content_tag(:div, markdown(model.description), class: :description)
   end
 
   def more
-    if source.further?
-      link_to("Lire la suite &raquo;".html_safe, article_path(source), class: "btn more")
+    if model.further?
+      link_to("Lire la suite &raquo;".html_safe, article_path(model), class: "btn more")
     else
       ""
     end
   end
 
   def body
-    content_tag(:div, markdown(source.body), class: :content)
+    content_tag(:div, markdown(model.body), class: :content)
   end
 
   def license
@@ -37,7 +37,7 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def introduction
-    content_tag(:div, markdown(source.introduction), class: :introduction) if source.introduction
+    content_tag(:div, markdown(model.introduction), class: :introduction) if model.introduction
   end
 
   def infos
@@ -53,9 +53,9 @@ class ArticleDecorator < Draper::Decorator
   def categories
     html = ""
 
-    source.categories.each do |category|
+    model.categories.each do |category|
       html += link_to(category.name, category_path(category))
-      if category != source.categories.last
+      if category != model.categories.last
         html += ", "
       end
     end
@@ -64,8 +64,8 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def edit_link
-    if can? :edit, source
-      " — " + link_to("éditer cet article", edit_admin_article_path(source)).html_safe
+    if can? :edit, model
+      " — " + link_to("éditer cet article", edit_admin_article_path(model)).html_safe
     else
       ""
     end
@@ -92,13 +92,13 @@ class ArticleDecorator < Draper::Decorator
     end
 
     def date_info
-      content_tag(:div, image_tag("date.svg") + l(source.created_at, :format => :date))
+      content_tag(:div, image_tag("date.svg") + l(model.created_at, :format => :date))
     end
 
     def comments_info
       content_tag(:div) do
-        target_text = pluralize(source.comments.count, "commentaire")
-        image_tag("comments.svg") + link_to(target_text, article_path(source), :anchor => "comments")
+        target_text = pluralize(model.comments.count, "commentaire")
+        image_tag("comments.svg") + link_to(target_text, article_path(model), :anchor => "comments")
       end
     end
 

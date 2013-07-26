@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.14'
 
 gem 'pg'
 
@@ -12,14 +12,14 @@ group :assets do
 end
 
 gem 'cancan'
-gem 'activeadmin'
+gem 'activeadmin', '~> 0.5.0'
 
 gem 'simple_form', '~> 2.0.4'
 
-gem 'draper', '~> 1.0'
+gem 'draper', '~> 1.2'
 
-gem 'nokogiri', '~> 1.5.9'
-gem 'redcarpet', '~> 2.3.0'
+gem 'nokogiri', '~> 1.6'
+gem 'redcarpet', '~> 3.0'
 gem 'pygments.rb', '~> 0.5.0'
 
 gem 'friendly_id', '~> 4.0.9'
@@ -28,9 +28,9 @@ gem 'will_paginate'
 
 gem 'thin'
 
-gem 'slim'
+gem 'slim', '~> 2.0'
 
-gem 'active_attr'
+gem 'active_attr', '~> 0.8'
 
 group :test do
   gem 'capybara'

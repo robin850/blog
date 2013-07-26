@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'pygments'
-require 'redcarpet/compat'
+require 'redcarpet'
 
 module ApplicationHelper
   class HTMLWithPygments < Redcarpet::Render::HTML
