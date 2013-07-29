@@ -111,7 +111,7 @@ class ArticleDecorator < Draper::Decorator
           target_text = pluralize(model.comments.count, "commentaire")
 
           image_tag("comments.svg") +
-          link_to(target_text, article_path(model), :anchor => "comments")
+          link_to(target_text, article_path(model, anchor: "comments"))
         end
       else
         ""

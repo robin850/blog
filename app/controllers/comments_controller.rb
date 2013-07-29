@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
       flash[:alert] = "Une erreur est survenue."
     end
 
-    redirect_to article_path(@article)
+    redirect_to article_path(@article, anchor: "comments")
   end
 
   def edit
