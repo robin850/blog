@@ -100,7 +100,7 @@ class ArticleDecorator < Draper::Decorator
 
     def date_info
       div(:date) do
-        image_tag("date.svg") +
+        image_tag("articles/date.svg") +
         l(model.created_at, :format => :date)
       end
     end
@@ -110,7 +110,7 @@ class ArticleDecorator < Draper::Decorator
         div("comments-info") do
           target_text = pluralize(model.comments.count, "commentaire")
 
-          image_tag("comments.svg") +
+          image_tag("articles/comments.svg") +
           link_to(target_text, article_path(model, anchor: "comments"))
         end
       else
@@ -120,7 +120,7 @@ class ArticleDecorator < Draper::Decorator
 
     def categories_info
       div("categories-info") do
-        image_tag("tags.svg") + self.categories
+        image_tag("articles/tags.svg") + self.categories
       end
     end
 end
