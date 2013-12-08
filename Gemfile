@@ -34,6 +34,8 @@ end
 
 gem 'action_args', '~> 1.2.1'
 
+gem 'formtastic', '~> 2.3.0.rc2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
